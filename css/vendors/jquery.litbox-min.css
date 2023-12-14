@@ -1,0 +1,357 @@
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+.litbox-show {
+        /* Prevent page scroll when litbox is visible. This allows for scrolling of both the litbox 
+        when the it's taller than the screen height and any long content within litbox. */
+        overflow: hidden;
+        height: 100%;
+        margin: 0;
+        padding: 1px 0;
+}
+
+#lboxOverlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    overflow: auto;
+        /* So the Litbox element's "height" option can display percentage values */
+        height: 100%;
+        box-sizing: border-box;
+}
+.litbox-show #lboxOverlay {
+/*    display: block;*/
+    display: flex;
+}
+
+#litbox,
+#lboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+#litbox {
+    /*visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index:9999;
+    transform: translateX(-50%);*/
+    overflow: hidden;
+
+    cursor: initial;
+    outline: 0;
+}
+/*.litbox-show #litbox {
+    visibility: visible;
+}*/
+
+
+#lboxWrapper {
+/*    height: 100%;*/
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#lboxContent {
+    /*position: relative;
+    height: 100%;
+    box-sizing: border-box;*/
+
+        /* So this element's height can shrink and share the space when the lboxTitle is visible */
+        flex: 1;
+        min-height: 0;
+}
+/*#litbox.has-title #lboxContent {
+    // TODO: try using flex on #lboxWrapper so the title can break onto a new line and reduce the height of #lboxContent automatically.
+    height: calc(100% - 51px);
+}*/
+#lboxLoadedContent {
+   /* height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;*/
+    height: 100%;
+
+        /* Prevent this element from being visible before content loads and fades in. */
+        opacity: 0;
+}
+/*#copy {// rename to #lboxContentWrap
+    padding: 20px;
+}*/
+#lboxContentWrap {
+        /* To vertically align photos (with margin: auto;) but also let HTML content start at the top-left. */
+        display: flex;
+        flex-wrap: wrap;
+/*        align-items: start;*/
+
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+#lboxContentWrap.iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#lboxLoadingBay {
+    display: none;
+}
+#lboxLoadingGraphic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#lboxTitle {
+    /*min-height: 51px;
+    box-sizing: border-box;
+    width: 100%;*/
+    flex: 0 1 auto;
+    box-sizing: border-box;
+}
+#lboxImage {
+    float:left;
+    margin:auto;
+    border:0;
+    display:block;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode:bicubic;
+}
+.lboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+
+
+
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of Colorbox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#lboxOverlay {
+	/*background: #000;
+	opacity: 0.4;*/
+}
+#litbox{}
+    /*#lboxContent {
+// overflow: visible;
+        background: #fff;
+        padding: 20px;
+        border-radius: 40px;
+    }*/
+    #lboxWrapper {
+        background: #fff;
+        overflow: hidden;
+
+            /* To position the control buttons within the Litbox. */
+            position: relative;
+    }
+    /*#litbox.has-title #lboxContent {
+        border-radius: 0px 0px 40px 40px;
+    }*/
+    #lboxContent {}
+        .lboxIframe {
+/*            background:#fff;*/
+        }
+        #lboxError {
+            /*padding: 50px;
+            border:1px solid #ccc;*/
+            padding: 50px;
+        }
+        #lboxLoadedContent {
+                /* So this appears on top of the loading graphic. */
+                position: relative;
+                z-index: 2;
+
+                /* To allow vert and horiz align of ContentWrap content (when contentMaxWidth and contentMaxHeight are set) */
+                display: flex;
+        }
+        /*#lboxLoadingGraphic{
+            background:url(loading.gif) no-repeat center center;
+        }*/
+        /*#lboxTitle {
+		    color: #333;
+		    font-weight: 500;
+		    padding: 16px 24px;
+		    border-bottom: 1px solid #e8e8e8;
+		    text-align: center;
+            border-radius: 40px 40px 0 0;
+		}*/
+/*        #lboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}*/
+
+        /* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+/*        #lboxPrevious, #lboxNext, #lboxSlideshow, #lboxClose {border:0; padding:0; margin:0; overflow:visible; text-indent:-9999px; width:20px; height:20px; position:absolute; top:-20px; background:url(controls.png) no-repeat 0 0;}*/
+        
+        /* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+/*        #lboxPrevious:active, #lboxNext:active, #lboxSlideshow:active, #lboxClose:active {outline:0;}*/
+
+        /*#lboxPrevious{background-position:0px 0px; right:44px;}
+        #lboxPrevious:hover{background-position:0px -25px;}
+        #lboxNext{background-position:-25px 0px; right:22px;}
+        #lboxNext:hover{background-position:-25px -25px;}
+        #lboxClose{background-position:-50px 0px; right:0;}
+        #lboxClose:hover{background-position:-50px -25px;}
+        .lboxSlideshow_on #lboxPrevious, .lboxSlideshow_off #lboxPrevious{right:66px;}
+        .lboxSlideshow_on #lboxSlideshow{background-position:-75px -25px; right:44px;}
+        .lboxSlideshow_on #lboxSlideshow:hover{background-position:-100px -25px;}
+        .lboxSlideshow_off #lboxSlideshow{background-position:-100px 0px; right:44px;}
+        .lboxSlideshow_off #lboxSlideshow:hover{background-position:-75px -25px;}
+
+
+#litbox .control { background: pink; }*/
+
+        #lboxTitle {
+            color: #333;
+            font-weight: 500;
+            padding: 16px 24px;
+            border-bottom: 1px solid #e8e8e8;
+            text-align: center;
+        }
+        #lboxCurrent {
+            background: rgba(255, 255, 255, .5);
+            padding: 2px 5px;
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            z-index: 3;
+            border-radius: 4px;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        /* These elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+        .lboxControl {
+            background: #ededed;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            text-indent: -9999px;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 20px;
+            z-index: 4;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .lboxControl::before,
+        .lboxControl::after {
+            display: block;
+            position: absolute;
+        }
+        .lboxControl:active {
+                /* Avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+                outline: 0;
+        }
+        .lboxControl:hover {
+            color: #000 !important;
+            background: #e3e3e3;
+        }
+        #lboxPrev {
+            left: 20px;
+        }
+        #lboxPrev::after,
+        #lboxNext::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-bottom: .14rem solid;
+            border-left: .14rem solid;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: rotate(45deg) translate(-50%, -50%);
+            transform: rotate(45deg) translate(-50%, -50%);
+            -webkit-transform-origin: 10% 20%;
+            transform-origin: 10% 20%;
+        }
+        #lboxNext {
+            left:46px;
+        }
+        #lboxNext::after {
+            border-left: 0;
+            border-right: 2px solid;
+            -webkit-transform-origin: -10% 20%;
+            transform-origin: -10% 20%;
+            -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+            transform: rotate(-45deg) translate(-50%, -50%);
+        }
+        
+        #lboxClose {
+            width: 36px;
+            height: 36px;
+            right: 12px;
+            top: 12px;
+            border-radius: 4px;
+        }
+        #lboxClose::after,
+        #lboxClose::before {
+            content: "";
+            width: 60%;
+            height: .12rem;
+            background: currentColor;
+            border-radius: 5px;
+            top: 50%;
+            left: 50%;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: rotate(45deg) translate(-50%, -50%);
+            transform: rotate(45deg) translate(-50%, -50%);
+        }
+        #lboxClose::after {
+            -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+            transform: rotate(-45deg) translate(-50%, -50%);
+        }
+        
+        #lboxSlideshow {
+            left: 72px;
+            display: none;
+        }
+        .slideshow-off #lboxSlideshow,
+        .slideshow-on #lboxSlideshow {
+            display: block;
+        }
+        .slideshow-off #lboxSlideshow::before,
+        .slideshow-on #lboxSlideshow::before {
+            content: "";
+            box-sizing: border-box;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .slideshow-off #lboxSlideshow::before {
+            width: 0;
+            height: 10px;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 6px solid;
+        }
+        .slideshow-on #lboxSlideshow::before {
+            width: .5rem;
+            height: 9px;
+            border-left: .16rem solid;
+            border-right: .16rem solid;
+        }
+
