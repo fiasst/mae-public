@@ -1,0 +1,339 @@
+/*
+* 
+* Custom CSS.
+*
+*/
+
+
+
+/*
+*
+* Forms.
+*
+*/
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  // Add styling because Safari will remove arrows due to "appearance: none;"...
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23555'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+  background-size: 8px;
+  background-position: right .8rem top 55%;
+  padding-right: 1.8rem;
+}
+select[multiple] {
+  background-image: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.w-checkbox-input--inputType-custom.w--redirected-checked,
+.w-checkbox-input--inputType-custom.w--redirected-focus {
+  box-shadow: none;
+}
+
+.button-primary[disabled]:hover {
+  background-color: #1a1b1f;
+}
+
+
+
+/*
+*
+* Text.
+*
+*/
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+/*
+*
+* LitBox.
+*
+*/
+#litbox {
+  .actions {
+    margin: 2rem 0 0;
+    width: 100%;
+  }
+}
+
+
+
+/*
+*
+* Memberstack.
+*
+*/
+.ms-modal__footer {
+  display: none;
+}
+.ms-modal__title {
+  text-transform: none;
+  margin-top: 1rem;
+}
+.ms-modal__close {
+  // When the user isn't logged in on .auto-auth pages (App webviews),
+  // hide the close modal button so it's the only options.
+  .user-anon & {
+    display: none;
+  }
+}
+
+
+
+/*
+* 
+* Accordion.
+*
+*/
+.accordion {
+  &.active {
+    .accordion-icon {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+
+
+/*
+*
+* Misc.
+*
+*/
+::selection {
+  color: #000;
+  background: #D0DAD5;
+}
+
+
+
+/*
+*
+* Utility.
+*
+*/
+.m-0 {
+    margin: 0 !important;
+}
+.mb-4 {
+  margin-bottom: 4px !important;
+}
+.mb-8 {
+  margin-bottom: 8px !important;
+}
+.mb-12 {
+  margin-bottom: 12px !important;
+}
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+.mb-24 {
+  margin-bottom: 24px !important;
+}
+.mb-32 {
+  margin-bottom: 32px !important;
+}
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+.mb-48 {
+  margin-bottom: 48px !important;
+}
+.mb-64 {
+  margin-bottom: 64px !important;
+}
+.mb-80 {
+  margin-bottom: 80px !important;
+}
+.mb-96 {
+  margin-bottom: 96px !important;
+}
+
+// Hide certain elements on Live site. This is a safety feature in case a .hide
+// class is omitted by mistake. For example after editing the Job Review form, etc...
+body .hide-live {
+  display: none !important;
+}
+
+.hide {
+  /*
+  * You cant put !important on .hide elements beause memberstack's
+  * [bind:style=display:flex] display attributes won't work.
+  */
+  display: none;
+}
+@media screen and (min-width: 568px) {
+  .hide-sm {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hide-md {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hide-lg {
+    display: none;
+  }
+}
+@media screen and (min-width: 1248px) {
+  .hide-xl {
+    display: none;
+  }
+}
+@media screen and (min-width: 1441px) {
+  .hide-xxl {
+    display: none;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .hide-xxxl {
+    display: none;
+  }
+}
+// Downwards.
+@media screen and (max-width: 567px) {
+  .hide-sm-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hide-md-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 991px) {
+  .hide-lg-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 1247px) {
+  .hide-xl-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .hide-xxl-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .hide-xxxl-down {
+    display: none;
+  }
+}
+
+.vis-hidden {
+  display: block !important;/*Needed to hide element in WF but show in browser...*/
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+
+/*
+*
+* No scroll / Overlay / Loader.
+*
+*/
+body.sidebar-filter-open,
+body.no-scroll {
+  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.fp-overlay {
+  background: rgba(0,0,0, .1);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+body.no-scroll .fp-overlay {
+  display: block;
+}
+
+.fp-loader {
+  display: none;
+  background: rgba(0,0,0, .3);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999999;
+}
+.thinking .fp-loader {
+  display: block;
+}
+.thinking-overlay {
+  .fp-loader,
+  .fp-overlay {
+    display: block;
+  }
+}
+.spin {
+  margin: 15px auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  animation: loader 1s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 4px solid #FFF;
+    animation: loader2 2s linear infinite;
+  }
+  &::after {
+    border-color: #000;
+    animation: loader2 2s linear infinite, loader 0.5s linear infinite reverse;
+    inset: 6px;
+  }
+}
+@keyframes loader {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+@keyframes loader2 {
+  0% {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+  25% {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+  50% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+  75% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+  100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+
+
+
+
+
+
+
