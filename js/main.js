@@ -300,6 +300,16 @@ var MAIN = (function($, window, document, undefined) {
             $consentBanner.remove();
         });
 
+
+        //
+        // Gallery.
+        //
+        $('.thumb-gallery').litbox({
+            href: function() {
+                return $(this).find('img').attr('src');
+            },
+            rel: 'gallery'
+        });
     });
 
     return pub;

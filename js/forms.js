@@ -1,8 +1,7 @@
 //
 //
 //
-var Bouncer,
-    FORMS = (function($, window, document, undefined) {
+var FORMS = (function($, window, document, undefined) {
     var pub = {};
 
 
