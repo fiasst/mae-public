@@ -318,6 +318,26 @@ var MAIN = (function($, window, document, undefined) {
                 }
             }
         });
+
+
+        //
+        // Person/bio gallery.
+        //
+        $('.grid-person-item').litbox({
+            href: function() {
+                return $(this).find('.bio');
+            },
+            inline: true,
+            rel: 'person',
+                css: {
+                xxs: {
+                    offset: 20,
+                    maxWidth: 1000,
+                    width: '100%',
+                    opacity: 0.4
+                }
+            }
+        });
     });
 
     return pub;
