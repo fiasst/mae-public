@@ -256,7 +256,15 @@ var FORMS = (function($, window, document, undefined) {
         $('.format-email').each(function() {
             $(this).trigger('change', false);
         });
-        
+
+
+        //
+        // 
+        //
+        $('input[type="checkbox"][data-value]').each(function() {
+            $(this).val( $(this).attr('data-value') );
+        });
+
 
         //
         // Populate select fields with Collection List item values.
