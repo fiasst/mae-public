@@ -308,7 +308,15 @@ var MAIN = (function($, window, document, undefined) {
             href: function() {
                 return $(this).find('img').attr('src');
             },
-            rel: 'gallery'
+            rel: 'gallery',
+            css: {
+                xxs: {
+                    offset: 20,
+                    maxWidth: 1200,
+                    width: '100%',
+                    opacity: 0.4
+                }
+            }
         });
     });
 
