@@ -389,6 +389,20 @@ HELP = (function($, window, document, undefined) {
 
 
     //
+    //
+    //
+    pub.parseIfStringJSON = function(str) {
+        if (typeof str === 'string') {
+            str = str.trim();
+            if (str[0] == '{' && str[str.length - 1] == '}') {
+                return JSON.parse(str);
+            }
+        }
+        return str;
+    };
+
+
+    //
     // Manage cookies.
     //
     pub.setCookie = function(name, value, days) {
