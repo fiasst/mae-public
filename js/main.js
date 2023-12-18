@@ -301,42 +301,44 @@ var MAIN = (function($, window, document, undefined) {
         });
 
 
-        //
-        // Gallery.
-        //
-        $('.thumb-gallery').litbox({
-            href: function() {
-                return $(this).find('img').attr('src');
-            },
-            rel: 'gallery',
-            css: {
-                xxs: {
-                    offset: 20,
-                    maxWidth: 1200,
-                    width: '100%',
-                    opacity: 0.4
-                }
-            }
-        });
-
-
-        //
-        // Person/bio gallery.
-        //
-        $('.grid-person-item').litbox({
-            href: function() {
-                return $(this).find('.bio');
-            },
-            inline: true,
-            rel: 'person',
+        HELP.waitFor(window.jQuery, 'litbox', 100, function() {
+            //
+            // Gallery.
+            //
+            $('.thumb-gallery').litbox({
+                href: function() {
+                    return $(this).find('img').attr('src');
+                },
+                rel: 'gallery',
                 css: {
-                xxs: {
-                    offset: 20,
-                    maxWidth: 1000,
-                    width: '100%',
-                    opacity: 0.4
+                    xxs: {
+                        offset: 20,
+                        maxWidth: 1200,
+                        width: '100%',
+                        opacity: 0.4
+                    }
                 }
-            }
+            });
+
+
+            //
+            // Person/bio gallery.
+            //
+            $('.grid-person-item').litbox({
+                href: function() {
+                    return $(this).find('.bio');
+                },
+                inline: true,
+                rel: 'person',
+                    css: {
+                    xxs: {
+                        offset: 20,
+                        maxWidth: 1000,
+                        width: '100%',
+                        opacity: 0.4
+                    }
+                }
+            });
         });
     });
 
