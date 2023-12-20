@@ -252,7 +252,7 @@ body.no-scroll .fp-overlay {
 
 .fp-loader {
   display: none;
-  background: rgba(0,0,0, .3);
+  background: rgba(0,0,0, .4);
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -285,7 +285,7 @@ body.no-scroll .fp-overlay {
 }
 .loading-spinner__circle-svg {
   animation: loading-spinner-rotate 1.28973s linear infinite;
-  stroke: #000;
+  stroke: #FFF;
   height: 100%;
   transform-origin: center center;
   width: 100%;
