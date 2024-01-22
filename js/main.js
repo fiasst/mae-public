@@ -314,7 +314,6 @@ var MAIN = (function($, window, document, undefined) {
                     xxs: {
                         offset: 20,
                         maxWidth: 1200,
-                        maxHeight: 740,
                         width: '100%',
                         opacity: 0.4
                     }
